@@ -1,6 +1,6 @@
 # Jupyter Notebook for Raspberry Pi 3 (ARMv7l) - Docker +18.06.1-ce
 
-This builds a Docker image containing Jupyter applications and interactive computing tools based on Python 3.8 for ARMv7 architectures, like the popular RaspberryPi 3 or XU4. Some of the packages included are Pandas, Numpy, Scipy, and matplotlib. These compute intesive packages are also provided as precompiled wheels for faster building. 
+This builds a Docker image containing Jupyter applications and interactive computing tools based on Python 3.8 for ARMv7 architectures, like the popular RaspberryPi 3 or XU4. Some of the packages included are Pandas, Numpy, Scipy, and matplotlib. These compute intensive packages are also provided as precompiled wheels for faster building. 
 
 Find it on:
 - https://github.com/andresvidal/jupyter-armv7l
