@@ -2,6 +2,12 @@
 
 This builds a Docker image containing Jupyter applications and interactive computing tools based on Python 3.8 for ARMv7 architectures, like the popular RaspberryPi 3 or XU4. Some of the packages included are Pandas, Numpy, Scipy, and matplotlib. These compute intesive packages are also provided as precompiled wheels for faster building. 
 
+Find it on:
+- https://github.com/andresvidal/jupyter-armv7l
+- https://hub.docker.com/repository/docker/andresvidal/jupyter-armv7l
+
+
+
 ## Quick Start
 
 **Example 1:** This command pulls the andresvidal/jupyter-armv7l image from Docker Hub if it is not already present on the local host. It then starts a container running a Jupyter Notebook server and exposes the server on host port 8888. The server logs appear in the terminal. Visiting `http://<hostname>:8888/?token=<token>` in a browser loads the Jupyter Notebook dashboard page, where hostname is the name of the computer running docker and token is the secret token printed in the console. The container remains intact for restart after the notebook server exits.
@@ -11,6 +17,18 @@ This builds a Docker image containing Jupyter applications and interactive compu
 **Example 3:** This command pulls the andresvidal/jupyter-armv7l image from Docker Hub if it is not already present on the local host. It then starts an ephemeral container running a Jupyter Notebook server and exposes the server on host port 10000. The command mounts the current working directory on the host as /notebooks in the container. The server logs appear in the terminal. Visiting `http://<hostname>:10000/?token=<token>` in a browser loads Jupyter, where hostname is the name of the computer running docker and token is the secret token printed in the console. Docker destroys the container after notebook server exit, but any files written to /notebooks in the container remain intact on the host.
 
     docker run --rm -p 10000:8888 -v "$PWD":/notebooks andresvidal/jupyter-armv7l
+
+**Example 4:** This command pulls the `andresvidal/jupyter-armv7l` image from Docker Hub if it is not already present on the local host. It then starts a daemon container running a Jupyter Notebook server and exposes the server on host port `8888`. The command mounts the current working directory on the host as `/notebooks` in the container. 
+
+The server logs won't appear in the terminal. Token and password will be disabled by the additional parameter, `--NotebookApp.token=''` Visiting `http://<hostname>:8888` in a browser loads Jupyter, where hostname is the name of the computer running docker. Docker will attempt to restart the container if it fails with the parameter `--restart unless-stopped`. Any files written to /notebooks in the container remain intact on the host.
+
+    docker run -d \
+    --name jupyter \
+    --restart unless-stopped \
+    -p 8888:8888 \
+    -v "$PWD":/notebooks \
+    andresvidal/jupyter-armv7l \
+    --NotebookApp.token=''
 
 ## Installed Versions
 Precompiled wheels for compute intense packages:
@@ -36,3 +54,8 @@ The latest pip-supported Jupyter is installed:
     ipywidgets       : 7.5.1
     nbformat         : 4.4.0
     traitlets        : 4.3.3
+
+# Build
+Build on armv7l architectures.
+
+    docker build -t andresvidal/jupyter-armv7l .
