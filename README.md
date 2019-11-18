@@ -58,4 +58,6 @@ The latest pip-supported Jupyter is installed:
 # Build
 Build on armv7l architectures.
 
-    docker build -t andresvidal/jupyter-armv7l .
+    git clone https://github.com/andresvidal/jupyter-armv7l.git
+    cd jupyter-armv7l
+    docker build -t <your hub>/jupyter-armv7l .
