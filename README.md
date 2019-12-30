@@ -4,7 +4,7 @@ This builds a Docker image containing Jupyter applications and interactive compu
 
 Find it on:
 - https://github.com/andresvidal/jupyter-armv7l
-- https://hub.docker.com/repository/docker/andresvidal/jupyter-armv7l
+- https://hub.docker.com/r/andresvidal/jupyter-armv7l
 
 
 
