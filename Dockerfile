@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     python-dev \
     texlive-fonts-extra \
     texlive-fonts-recommended \
-    texlive-generic-recommended \
+    texlive-plain-generic \
     texlive-latex-base \
     texlive-latex-extra \
     texlive-xetex \
